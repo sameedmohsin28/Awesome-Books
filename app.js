@@ -2,21 +2,23 @@ const booksObjectArray = [];
 const gettingBooksFromLocal = JSON.parse(localStorage.getItem('localStorageBooks'));
 const allBooks = document.querySelector('.all-books-container');
 
+class BookClass {
+  constructor(id, bookTitle, author) {
+    this.id = id;
+    this.bookName = bookTitle;
+    this.bookAuthor = author;
+  }
+}
+
 if (gettingBooksFromLocal !== null) {
   gettingBooksFromLocal.forEach((element) => {
     allBooks.innerHTML += `
     <div class="particular-book" id="${element.id}">
-      <p class="book-title">${element.bookName}</p>
-      <p class="book-author">${element.bookAuthor}</p>
+      <p class="book-title-and-author">"${element.bookName}" by ${element.bookAuthor}</p>
       <button class="remove-book" onclick="removeBook(${element.id})">Remove</button>
-      <hr>
     </div>
     `;
-    const singleBook = {
-      id: element.id,
-      bookName: element.bookName,
-      bookAuthor: element.bookAuthor,
-    };
+    const singleBook = new BookClass(element.id, element.bookName, element.bookAuthor);
     booksObjectArray.push(singleBook);
   });
 }
@@ -26,11 +28,7 @@ const inputAuthor = document.querySelector('.input-book-author');
 const addBtn = document.querySelector('.add-button');
 
 function addBook() {
-  const singleBook = {
-    id: booksObjectArray.length,
-    bookName: inputBook.value,
-    bookAuthor: inputAuthor.value,
-  };
+  const singleBook = new BookClass(booksObjectArray.length, inputBook.value, inputAuthor.value);
   booksObjectArray.push(singleBook);
   localStorage.setItem('localStorageBooks', JSON.stringify(booksObjectArray));
 }

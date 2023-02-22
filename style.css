@@ -9,6 +9,7 @@
 .main-page {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
   padding: 0 10px;
 }
@@ -16,5 +17,65 @@
 .all-books-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  width: 70%;
+  border: 2px solid rgb(87, 46, 46);
+}
+
+.particular-book {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  height: 30px;
+}
+
+.particular-book:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.horizontal-rule {
+  width: 40%;
+}
+
+.add-a-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 22%;
+}
+
+.form-heading {
+  text-align: center;
+}
+
+.add-a-book ul {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.add-a-book ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-a-book ul li input {
+  width: 100%;
+  border: 2px solid rgb(92, 92, 92);
+}
+
+.add-button {
+  align-self: flex-end;
+  width: 50px;
+}
+
+button {
+  box-shadow: 2px 2px;
 }
