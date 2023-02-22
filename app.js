@@ -44,5 +44,5 @@ function removeBook(bookId) {
     res[i].id = i;
   }
   localStorage.setItem('localStorageBooks', JSON.stringify(res));
-  window.location.reload()
+  window.location.reload();
 }
