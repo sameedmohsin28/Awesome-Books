@@ -10,18 +10,18 @@ class BookClass {
   }
 }
 
-// if (gettingBooksFromLocal !== null) {
-gettingBooksFromLocal.forEach((element) => {
-  allBooks.innerHTML += `
-  <div class="particular-book" id="${element.id}">
-    <p class="book-title-and-author">"${element.bookName}" by ${element.bookAuthor}</p>
-    <button class="remove-book" onclick="removeBook(${element.id})">Remove</button>
-  </div>
-  `;
-  const singleBook = new BookClass(element.id, element.bookName, element.bookAuthor);
-  booksObjectArray.push(singleBook);
-});
-// }
+if (gettingBooksFromLocal !== null) {
+  gettingBooksFromLocal.forEach((element) => {
+    allBooks.innerHTML += `
+    <div class="particular-book" id="${element.id}">
+      <p class="book-title-and-author">"${element.bookName}" by ${element.bookAuthor}</p>
+      <button class="remove-book" onclick="removeBook(${element.id})">Remove</button>
+    </div>
+    `;
+    const singleBook = new BookClass(element.id, element.bookName, element.bookAuthor);
+    booksObjectArray.push(singleBook);
+  });
+}
 
 if (booksObjectArray.length === 0) {
   allBooks.innerHTML = `
