@@ -23,6 +23,12 @@ if (gettingBooksFromLocal !== null) {
   });
 }
 
+if (booksObjectArray.length === 0) {
+  allBooks.innerHTML = `
+  <div class="no-books-message"> No books to show. Please add books to the list. </div>
+  `;
+}
+
 const inputBook = document.querySelector('.input-book-name');
 const inputAuthor = document.querySelector('.input-book-author');
 const addBtn = document.querySelector('.add-button');
@@ -44,3 +50,31 @@ function removeBook(bookId) {
   localStorage.setItem('localStorageBooks', JSON.stringify(res));
   window.location.reload();
 }
+
+const listSection = document.querySelector('.books-list-page');
+const addNewSection = document.querySelector('.add-book-container');
+const contactSection = document.querySelector('.contacts-section');
+const listNav = document.querySelector('.nav-list');
+const addNewNav = document.querySelector('.nav-add-new');
+const contactNav = document.querySelector('.nav-contact');
+
+function showPage(pageName) {
+  listSection.style.display = 'none';
+  addNewSection.style.display = 'none';
+  contactSection.style.display = 'none';
+  pageName.style.display = 'flex';
+}
+
+listNav.addEventListener('click', () => {
+  showPage(listSection);
+});
+addNewNav.addEventListener('click', () => {
+  showPage(addNewSection);
+});
+contactNav.addEventListener('click', () => {
+  showPage(contactSection);
+});
+
+const dateOnPage = document.querySelector('.date');
+const fetchDate = Date();
+dateOnPage.innerHTML = fetchDate;
